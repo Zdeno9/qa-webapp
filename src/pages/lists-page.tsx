@@ -103,6 +103,7 @@ const ListsPage = () => {
           <Card.Section>
             <Form.Select
               label="Add User"
+              data-cy="selectBudgetUser"
               value=""
               onChange={(event) => {
                 addUserToList(list.id, event.target.value);
@@ -118,6 +119,7 @@ const ListsPage = () => {
             </Form.Select>
             <Button
               icon={ButtonIconType.Delete}
+              data-cy="deleteBudget"
               onClick={() => deleteList(list.id)}
             />
           </Card.Section>
@@ -129,6 +131,7 @@ const ListsPage = () => {
           <Form.TextInput
             value={title}
             label="Budget Name"
+            data-cy="budgetInput"
             onChange={(event) => setTitle(event.target.value)}
             width="256px"
           />
@@ -137,6 +140,7 @@ const ListsPage = () => {
           <Button
             icon={ButtonIconType.Create}
             disabled={!title.length}
+            data-cy="budgetSubmit"
             onClick={createList}
           />
         </Card.Section>

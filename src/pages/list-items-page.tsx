@@ -104,12 +104,14 @@ const ListItemsPage = ({ history }: RouteComponentProps<any>) => {
           <Form.TextInput
             value={title}
             label="Entry Name"
+            data-cy="budgetEntry"
             onChange={(event) => setTitle(event.target.value)}
             width="216px"
           />
           <Form.Select
             label="Select Category"
             value={category}
+            data-cy="selectBudgetCategory"
             onChange={(event) =>
               setCategory(event.target.value as CategoryType)
             }
@@ -127,16 +129,19 @@ const ListItemsPage = ({ history }: RouteComponentProps<any>) => {
             mode={
               direction > 0 ? ToggleModeType.Income : ToggleModeType.Expense
             }
+            data-cy="toggleIncomeExpense"
             onClick={() => setDirection(direction * -1)}
           />
           <Form.TextInput
             value={amount}
             label="Amount"
+            data-cy="amount"
             onChange={(event) => setAmount(event.target.value)}
             width="112px"
           />
           <Button
             icon={ButtonIconType.Create}
+            data-cy="submitEntry"
             disabled={
               !(title.length && category !== "" && isPositiveNumber(amount))
             }

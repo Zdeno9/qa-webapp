@@ -7,3 +7,19 @@ services:
     ports:
       - "3567:3000"
     container_name: qa-webapp
+  #Cypress container
+  e2e:
+    image: cypress
+    build: ./cypress
+    container_name: cypress
+    depends_on:
+      - qa-webapp
+    environment:
+      - CYPRESS_baseUrl=http://qa-webapp:3000
+    #Command would have to be properly edited because compose does 
+    #not wait for qa-webapp to start thus first spec will fail.
+    command: npx cypress run
+    volumes:
+      - ./cypress:/app/cypress
+      - ./cypress.config.js:/app/cypress.config.js
+      - ./tsconfig.json:/app/tsconfig.json

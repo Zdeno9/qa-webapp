@@ -126,7 +126,8 @@ const StatsPage = () => {
           </Form.Select>
         </Card.Section>
         <Card.Section>
-          <Title.CardSubTitle style={{ marginRight: "-8px" }}>
+          <Title.CardSubTitle style={{ marginRight: "-8px" }} 
+          data-cy="totalIncome">
             Total Income:
           </Title.CardSubTitle>
           <Amount
@@ -134,7 +135,8 @@ const StatsPage = () => {
               .map((income) => income.value)
               .reduce((a, b) => a + b, 0)}
           />
-          <Title.CardSubTitle style={{ marginRight: "-8px" }}>
+          <Title.CardSubTitle style={{ marginRight: "-8px" }}
+          data-cy="totalExpense">
             Total Expense:
           </Title.CardSubTitle>
           <Amount
